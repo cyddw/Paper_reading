@@ -102,7 +102,7 @@ class SpGraphAttentionLayer(nn.Module):
         h_att = g.ndata.pop('h_att') # (N,out_features)
         # print(h_att.shape)
         # h_conv = torch.relu(self.w_out(h_att))
-        h_conv = self.mlp_out(h_att)
+        h_conv = self.mlp_out(h_att)    # 对应paper公式(5)，其中h_conv为空间表示
         return h_conv
         
 class AGDN(nn.Module):
