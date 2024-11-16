@@ -97,7 +97,7 @@ class SpGraphAttentionLayer(nn.Module):
         dst_lane = g.edata['feature'][...,3].long()
         e_te = self.EDGE_TE(TE_Params, delta_t, dst_lane)
         g.edata['h_edge'] = torch.cat([g.edata['feature'][...,:3], e_te], dim=-1) # (n_edge, Fe)
-        g.apply_edges(self.edge_attention)
+        g.apply_edges(self.edge_attention)    # 更新g的边的特征
         g.update_all(self.message_func, self.reduce_func)
         h_att = g.ndata.pop('h_att') # (N,out_features)
         # print(h_att.shape)
