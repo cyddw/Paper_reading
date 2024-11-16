@@ -38,8 +38,8 @@ class SpGraphAttentionLayer(nn.Module):
             xa = torch.cat([edges.src['h_x'], edges.data['h_edge']],dim=-1) 
         else:
             xa = torch.cat([edges.src['h_x'], edges.dst['h_x'], edges.data['h_edge']],dim=-1)
-        att_sim = torch.sum(self.va*torch.tanh(self.w_att(xa)),dim=-1)
-        return {'att_sim': att_sim}
+        att_sim = torch.sum(self.va*torch.tanh(self.w_att(xa)),dim=-1)    # va对应paper公式(4)的vT，w_att对应Wa
+        return {'att_sim': att_sim}    # att_sim为相似系数
 
     def message_func(self, edges):
         # message UDF
