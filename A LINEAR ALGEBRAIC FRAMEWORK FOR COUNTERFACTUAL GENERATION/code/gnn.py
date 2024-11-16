@@ -79,7 +79,7 @@ class SpGraphAttentionLayer(nn.Module):
 
         return TE
     
-    def forward(self, TE_Params, X_msg, g):
+    def forward(self, TE_Params, X_msg, g):    # g为dgl类型
         """
         :param X_key: X_key data of shape (num_nodes(N), in_features_1).
         :param X_value: X_value dasta of shape (num_nodes(N), in_features_2).
