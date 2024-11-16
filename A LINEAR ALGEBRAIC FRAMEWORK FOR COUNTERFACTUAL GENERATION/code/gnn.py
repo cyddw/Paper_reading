@@ -43,12 +43,12 @@ class SpGraphAttentionLayer(nn.Module):
 
     def message_func(self, edges):
         # message UDF
-        return {'h_x': edges.src['h_x'], 'att_sim': edges.data['att_sim'], 'h_edge': edges.data['h_edge']}
+        return {'h_x': edges.src['h_x'], 'att_sim': edges.data['att_sim'], 'h_edge': edges.data['h_edge']}    # src表示源节点
 
     def reduce_func(self, nodes):
         # reduce UDF
         # print(nodes.mailbox['att_sim'].shape,nodes.mailbox['h_value'].shape) # (1, n_edge)
-        alpha = F.softmax(nodes.mailbox['att_sim'], dim=1) # (# of nodes, # of neibors)
+        alpha = F.softmax(nodes.mailbox['att_sim'], dim=1) # (# of nodes, # of neibors)    # alpha为注意力系数
         alpha = alpha.unsqueeze(-1)
         # print(nodes.mailbox['h_value'].shape, nodes.mailbox['edge_feature'].shape)
         ### add edge features
