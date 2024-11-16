@@ -112,7 +112,7 @@ class AGDN(nn.Module):
         # print('# of gat layer:', gathop)
         self.nhid = nhid
         self.device = args.device
-        self.dropout = nn.Dropout(dropout)
+        self.dropout = nn.Dropout(dropout)    # 防止过拟合，dropout=0.3，表示每个神经节点有0.3的可能不被激活
         self.gat_stacks = nn.ModuleList()
         for i in range(gathop):
             if(i > 0): in_feat = nhid 
