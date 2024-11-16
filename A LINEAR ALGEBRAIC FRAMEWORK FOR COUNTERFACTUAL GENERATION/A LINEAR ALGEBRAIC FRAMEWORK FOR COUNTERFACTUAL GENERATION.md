@@ -4,10 +4,7 @@
 
 ## [EM算法](https://zhuanlan.zhihu.com/p/78311644)
 
-## 图注意力网络(GAT)
+## 图注意力网络([GAT](https://blog.csdn.net/xiao_muyu/article/details/121762806))
 
-### 计算注意力系数
-
-> <img width="759" alt="image" src="https://github.com/user-attachments/assets/9e381e6e-a711-4583-8e13-35e4f58900db">
 
 
