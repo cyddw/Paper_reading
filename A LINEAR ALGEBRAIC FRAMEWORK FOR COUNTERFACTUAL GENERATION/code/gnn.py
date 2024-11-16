@@ -86,14 +86,14 @@ class SpGraphAttentionLayer(nn.Module):
         :param g: sparse graph, edata(distance, delta_t, dst_period, dst_lane).
         :return: Output data of shape (num_nodes(N), out_features).
         """
-        N, in_features = X_msg.size()
+        N, in_features = X_msg.size()    # in_feat表示特征维度，N表示节点数
         # h_key = self.w_key(X_key)  # (B,N,out_features)
         # h_value = self.w_value(X_value)
-        g.ndata['h_x'] = X_msg
+        g.ndata['h_x'] = X_msg    # g.ndata表示g图的节点特征
         ### Edge TE ###
         # edge features: x_distance, x_edge_dt, x_reachability, x_dst_lane
         # delta_t = g.edata['feature'][...,1:2]/g.edata['feature'][...,2:3]
-        delta_t = g.edata['feature'][...,1:2]
+        delta_t = g.edata['feature'][...,1:2]    # g.edata表示g图的边特征
         dst_lane = g.edata['feature'][...,3].long()
         e_te = self.EDGE_TE(TE_Params, delta_t, dst_lane)
         g.edata['h_edge'] = torch.cat([g.edata['feature'][...,:3], e_te], dim=-1) # (n_edge, Fe)
