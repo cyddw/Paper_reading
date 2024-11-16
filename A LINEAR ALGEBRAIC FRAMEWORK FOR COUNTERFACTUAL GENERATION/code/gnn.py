@@ -4,7 +4,7 @@ import time
 import numpy as np
 import torch.nn as nn
 import torch.nn.functional as F
-import dgl
+import dgl    # 深度图形库
 
 class SpGraphAttentionLayer(nn.Module):
     def __init__(self, args, in_feat, nhid, dropout, layer, is_pred):
