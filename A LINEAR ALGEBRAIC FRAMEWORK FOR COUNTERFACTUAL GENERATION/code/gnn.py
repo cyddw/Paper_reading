@@ -13,7 +13,7 @@ class SpGraphAttentionLayer(nn.Module):
         # self.w_key = nn.Linear(in_feat, nhid, bias=True)
         # self.w_value = nn.Linear(in_feat, nhid, bias=True)
         # self.w_edge = nn.Linear(3+args.te_dim, nhid, bias=True)
-        self.w_att = nn.Linear(4+3+args.te_dim-2*is_pred, nhid, bias=True)
+        self.w_att = nn.Linear(4+3+args.te_dim-2*is_pred, nhid, bias=True)    # te_dim:Number of hidden units for time encoding
         self.va = nn.Parameter(torch.zeros(1,nhid))
         nn.init.normal_(self.va.data)
         # self.w_out = nn.Linear(2+3+args.te_dim, nhid, bias=True)
