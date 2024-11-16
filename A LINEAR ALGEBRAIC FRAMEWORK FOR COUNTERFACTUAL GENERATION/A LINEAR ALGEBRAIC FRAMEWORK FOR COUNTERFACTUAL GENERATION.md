@@ -6,4 +6,8 @@
 
 ## 图注意力网络(GAT)
 
+### 计算注意力系数
+
+> <img width="759" alt="image" src="https://github.com/user-attachments/assets/9e381e6e-a711-4583-8e13-35e4f58900db">
+
 
