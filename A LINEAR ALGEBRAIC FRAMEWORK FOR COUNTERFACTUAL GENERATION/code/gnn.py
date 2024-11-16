@@ -29,7 +29,7 @@ class SpGraphAttentionLayer(nn.Module):
         # self.leakyrelu = nn.LeakyReLU(0.2)
         # self.cosinesimilarity = nn.CosineSimilarity(dim=-1, eps=1e-8)
     
-    def edge_attention(self, edges):
+    def edge_attention(self, edges):    # 求节点间的相似系数
         # edge UDF
         # att_sim = torch.sum(torch.mul(edges.src['h_key'], edges.dst['h_key']),dim=-1)  # dot-product attention
         # att_sim = self.cosinesimilarity(edges.src['h_key'], edges.dst['h_key'])  # cosine attention
