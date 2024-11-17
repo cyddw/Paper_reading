@@ -63,7 +63,7 @@ class SpGraphAttentionLayer(nn.Module):
         TE_w, sharedTE_w, TE_lam = TE_Params  # (N, D)
         # print(TE_w.mean(), TE_b.mean())
         ret_TE_w = TE_w[dst_lane] # (N_edge, D)
-        ret_TE_lam = TE_lam[dst_lane]
+        ret_TE_lam = TE_lam[dst_lane]    # λi
         # print(dst_lane.shape, dt.shape, ret_TE_w.shape)
         ind_sin = torch.sin(dt*ret_TE_w)
         ind_cos = torch.cos(dt*ret_TE_w)
@@ -75,7 +75,7 @@ class SpGraphAttentionLayer(nn.Module):
     
         lam = torch.exp(-torch.square(ret_TE_lam))
         # print(te_ind.shape, te_shared.shape, lam.shape)
-        TE = (1-lam) * te_ind + lam * te_shared
+        TE = (1-lam) * te_ind + lam * te_shared    # 对应paper中的公式(8)
 
         return TE
     
