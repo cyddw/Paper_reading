@@ -93,8 +93,8 @@ class SpGraphAttentionLayer(nn.Module):
         ### Edge TE ###
         # edge features: x_distance, x_edge_dt, x_reachability, x_dst_lane
         # delta_t = g.edata['feature'][...,1:2]/g.edata['feature'][...,2:3]
-        delta_t = g.edata['feature'][...,1:2]    # g.edata表示g图的边特征
-        dst_lane = g.edata['feature'][...,3].long()
+        delta_t = g.edata['feature'][...,1:2]    # g.edata表示g图的边特征，由于索引从0开始，因此delta_t获取的是g.edata['feature']的第2个元素
+        dst_lane = g.edata['feature'][...,3].long() # dst_lane获取的是第4个元素
         e_te = self.EDGE_TE(TE_Params, delta_t, dst_lane)
         g.edata['h_edge'] = torch.cat([g.edata['feature'][...,:3], e_te], dim=-1) # (n_edge, Fe)
         g.apply_edges(self.edge_attention)    # 更新g的边的特征
