@@ -6,5 +6,7 @@
 
 ## 图注意力网络([GAT](https://blog.csdn.net/xiao_muyu/article/details/121762806))
 
+## [位置编码](https://blog.csdn.net/weixin_43406046/article/details/130745363)
+
 
 
