@@ -305,7 +305,7 @@ class ASeer(nn.Module):
         Filter_seqnorm = F.softmax(Filter_mask, dim=-2)  # (N, Lx, F_in*hid_dim)
         Filter_seqnorm = Filter_seqnorm.view(N, Lx, self.hid_dim, -1) # (N, Lx, hid_dim, F_in)
         X_int_broad = X_int.unsqueeze(dim=-2).repeat(1, 1, self.hid_dim, 1)
-        ttcn_out = torch.sum(torch.sum(X_int_broad * Filter_seqnorm, dim=-3), dim=-1) # (N, hid_dim)
+        ttcn_out = torch.sum(torch.sum(X_int_broad * Filter_seqnorm, dim=-3), dim=-1) # (N, hid_dim)    # 对应于卷积操作
         # print(mask_X.shape, Filter_seqnorm.shape, ttcn_out.shape)
         h_t = torch.relu(ttcn_out + self.T_bias) # (N, hid_dim)
         # h_t = self.leakyrelu(ttcn_out + self.T_bias) # (N, hid_dim)
