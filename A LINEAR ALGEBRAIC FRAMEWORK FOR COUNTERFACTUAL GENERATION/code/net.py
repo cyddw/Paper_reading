@@ -299,7 +299,7 @@ class ASeer(nn.Module):
 
     def TTCN(self, X_int, mask_X):
         N, Lx, _ = mask_X.shape
-        Filter = self.Filter_Generators(X_int) # (N, Lx, F_in*hid_dim)
+        Filter = self.Filter_Generators(X_int) # (N, Lx, F_in*hid_dim)    # Filter_Generators由三层一维卷积构成,X_int与paper公式(9)中的z相对应
         Filter_mask = Filter * mask_X + (1 - mask_X) * (-1e8)
         # normalize along with sequence dimension
         Filter_seqnorm = F.softmax(Filter_mask, dim=-2)  # (N, Lx, F_in*hid_dim)
