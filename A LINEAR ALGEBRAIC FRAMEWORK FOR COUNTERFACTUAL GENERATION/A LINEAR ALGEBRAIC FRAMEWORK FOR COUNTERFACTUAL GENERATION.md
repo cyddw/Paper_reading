@@ -4,6 +4,12 @@
 
 ## [EM算法](https://zhuanlan.zhihu.com/p/78311644)
 
+## 待解决问题
+
+> 1.对于空间建模的异步性，如何解决？
+
+> 2.对于时间建模的不规则性，如何建模？
+
 ## 图注意力网络([GAT](https://blog.csdn.net/xiao_muyu/article/details/121762806))
 
 ## [位置编码](https://blog.csdn.net/weixin_43406046/article/details/130745363)
