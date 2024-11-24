@@ -2,6 +2,11 @@
 
 现有模型在进行Granger因果构建时，很少涉及imperfect intervention with unknown target的情况
 
+## 模型框架
+
+> <img width="458" alt="image" src="https://github.com/user-attachments/assets/7eba1199-5965-4547-8d37-e1fc19a3a608">
+
+
 ## VAR模型
 
 向量自回归模型把每个内生变量作为系统中所有内生变量滞后值的函数来构造模型，从而避开了结构建模方法中需要对系统每个内生变量关于所有内生变量滞后值的建模问题。
