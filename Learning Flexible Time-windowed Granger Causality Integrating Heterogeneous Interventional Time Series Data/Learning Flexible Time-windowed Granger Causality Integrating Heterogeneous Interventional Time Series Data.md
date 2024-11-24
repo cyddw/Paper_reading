@@ -31,3 +31,5 @@ VAR模型的平稳性是一个重要的假设。只有在模型是平稳的情�
 ### Paper中的不同的env是如何生成的？
 
 ### Intervention体现在哪？
+
+> <img width="725" alt="image" src="https://github.com/user-attachments/assets/47c77199-b37e-4aee-9250-6ea798b367f2">
