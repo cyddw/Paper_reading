@@ -6,6 +6,9 @@
 
 > <img width="458" alt="image" src="https://github.com/user-attachments/assets/7eba1199-5965-4547-8d37-e1fc19a3a608">
 
+1.包含三个网络：
+
+> 预测网络、介入网络和因果网络
 
 ## VAR模型
 
