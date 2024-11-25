@@ -35,7 +35,7 @@ VAR模型的平稳性是一个重要的假设。只有在模型是平稳的情�
 > <img width="725" alt="image" src="https://github.com/user-attachments/assets/47c77199-b37e-4aee-9250-6ea798b367f2">
 
 ### 4.分析Non-Linear代码部分
-> def nonlinear_ts_data(T, lag, beta, GC, seed=0, sd=0.1, interv=False, anomaly=200, strength=0.1): # 产生Interventional data  # T=1000,strength=0.05，anomaly=500
+def nonlinear_ts_data(T, lag, beta, GC, seed=0, sd=0.1, interv=False, anomaly=200, strength=0.1): # 产生Interventional data  # T=1000,strength=0.05，anomaly=500
     np.random.seed(seed)
 
     p = np.shape(GC)[0] # p=5
