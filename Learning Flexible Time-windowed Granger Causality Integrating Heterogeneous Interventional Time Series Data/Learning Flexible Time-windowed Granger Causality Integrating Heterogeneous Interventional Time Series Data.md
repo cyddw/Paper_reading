@@ -58,3 +58,6 @@ VAR模型的平稳性是一个重要的假设。只有在模型是平稳的情�
 ### 7.IF_est代表什么？
 
 ### 8.为什么通过计算ref_layer和inv_layer的权重的二范数可以得到GC和IF？
+
+### 9."elam=0.0, glam=0.0, lam_ridge=0.0, lookback=5, check_every=20, verbose=1"参数说明
+
