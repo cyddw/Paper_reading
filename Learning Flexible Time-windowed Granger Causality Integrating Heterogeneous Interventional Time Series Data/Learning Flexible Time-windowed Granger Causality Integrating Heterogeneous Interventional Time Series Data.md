@@ -35,3 +35,7 @@ VAR模型的平稳性是一个重要的假设。只有在模型是平稳的情�
 > <img width="725" alt="image" src="https://github.com/user-attachments/assets/47c77199-b37e-4aee-9250-6ea798b367f2">
 
 ### 4.分析Non-Linear代码部分
+
+### 5.VAR模型的作用
+
+> VAR模型是为了仿真节点之间的联系
