@@ -35,32 +35,15 @@ VAR模型的平稳性是一个重要的假设。只有在模型是平稳的情�
 > <img width="725" alt="image" src="https://github.com/user-attachments/assets/47c77199-b37e-4aee-9250-6ea798b367f2">
 
 ### 4.分析Non-Linear代码部分
-def nonlinear_ts_data(T, lag, beta, GC, seed=0, sd=0.1, interv=False, anomaly=200, strength=0.1): # 产生Interventional data， T=1000,strength=0.05，anomaly=500
-    np.random.seed(seed)
 
-    p = np.shape(GC)[0] # p=5
-    beta = make_var_stationary(beta)    # beta作为VAR模型的系数矩阵
+> 确认模型以及模型参数：
 
-    interv_target = np.random.randint(0, 2, (p, 1))     # 随机生成被介入的目标节点
-    interv_matrix = np.tile(interv_target, (1, p)) * GC * strength      # tile函数将target进行复制拓展
-    interv_beta = beta + interv_matrix  # 维度5*5
+> <img width="166" alt="image" src="https://github.com/user-attachments/assets/4015082f-5bac-49ae-84f9-cd3b2efe649f">
 
-    burn_in = 100
-    errors = np.random.normal(scale=sd, size=(p, T + burn_in))     # 生成标准差为0.1，均值为0的正态分布，其维度为5*1100
-    X = np.zeros((p, T + burn_in))
-    X[:, :lag] = errors[:, :lag]
-    for t in range(lag, T + burn_in):
-        if interv and t > anomaly:  # anomaly：干预开始的节点
-            X[:, t] = np.dot(interv_beta, X[:, (t - lag):t].flatten(order='F'))
-            alpha = 0.1  # Leaky ReLU parameter
-            X[:, t] = np.where(X[:, t] > 0, X[:, t], alpha * X[:, t])
-        else:
-            X[:, t] = np.dot(beta, X[:, (t - lag):t].flatten(order='F'))    # 利用AR模型计算出下一步X
-            alpha = 0.1  # Leaky ReLU parameter
-            X[:, t] = np.where(X[:, t] > 0, X[:, t], alpha * X[:, t])   # 如果X第t列的元素大于0，则保持不变，否则乘以0.1
-        X[:, t] += + errors[:, t - 1]
+> 其中lag=1，表示t时刻的节点只取决于t-1时刻，fi(X)=ReLU(beta*X)，噪声为均值为0，标准差为0.1的正态分布
 
-    return X.T[burn_in:], interv_target, interv_beta    # burn_in指预热阶段的持续时间，预热阶段的值需要舍弃，以保证模型的稳定性
+> 当T>500时，开始介入，即beta变为beta_interv(interv_beta的生成：随机生成interv_target，对interv_target施加strength，得到的结果和原来的beta相加)
+
 
 ### 5.VAR模型的作用
 
