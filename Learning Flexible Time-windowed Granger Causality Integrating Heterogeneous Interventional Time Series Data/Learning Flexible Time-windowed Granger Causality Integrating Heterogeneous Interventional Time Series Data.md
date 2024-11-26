@@ -24,7 +24,7 @@
 
 VAR模型的平稳性是一个重要的假设。只有在模型是平稳的情况下，VAR模型的估计结果才是可靠的。平稳性意味着时间序列的均值、方差和协方差在时间上不随时间变化。对于VAR模型来说，平稳性可以通过检查特征根来判断。一个VAR模型是平稳的，当且仅当模型的特征根的模小于1。
 
-## [近端梯度下降法](https://www.zhihu.com/tardis/zm/art/82622940?source_id=1005)
+## [近端梯度下降法](https://www.bilibili.com/video/BV1AS4y1q76x/?spm_id_from=333.337.search-card.all.click&vd_source=887e79a2964e5ce84cbcf68e50febd27)
 
 ### 为什么提出近端梯度下降？
 
