@@ -32,6 +32,8 @@ VAR模型的平稳性是一个重要的假设。只有在模型是平稳的情�
 
 ## [KKT条件](https://zhuanlan.zhihu.com/p/38163970)
 
+## [矩阵求导]()
+
 ## 疑问
 
 ### 1.Paper中的Heterogeneous体现在哪里？
