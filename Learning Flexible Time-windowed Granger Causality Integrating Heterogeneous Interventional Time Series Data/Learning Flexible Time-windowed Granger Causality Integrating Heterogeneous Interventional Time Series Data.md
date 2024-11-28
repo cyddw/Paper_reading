@@ -32,7 +32,7 @@ VAR模型的平稳性是一个重要的假设。只有在模型是平稳的情�
 
 ## [KKT条件](https://zhuanlan.zhihu.com/p/38163970)
 
-## [矩阵求导]()
+## [矩阵求导](https://www.cnblogs.com/crazypigf/p/17286929.html)
 
 ## 疑问
 
